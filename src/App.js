@@ -21,17 +21,16 @@ function App() {
   const [numRows, setNumRows] = useState(50);
   const [numCols, setNumCols] = useState(50);
 
-  const generateEmptyGrid = () => {
+  const generateEmptyGrid = ((numRows, numCols) => {
     const rows = [];
     for (let i = 0; i < numRows; i++) {
       rows.push(Array.from(Array(numCols), () => 0))
     }
-
     return rows;
-  }
+  })
 
   const [grid, setGrid] = useState(() => {
-    return generateEmptyGrid()
+    return generateEmptyGrid(numRows,numCols)
   })
 
   const [running, setRunning] = useState(false)
@@ -72,64 +71,59 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const numCols = Number(e.target[0].value);
+    const numRows = Number(e.target[1].value);
 
     if((Number(e.target[0].value) === undefined || 0 ) || 
       (Number(e.target[1].value) === undefined || 0 ))       
       return;
     else {
       setRunning(false);
-      runningRef.current = false;      
-
-      console.log('Col value = ' + e.target[0].value)
-      console.log('Row value = ' + e.target[1].value)
-      setNumCols(Number(e.target[0].value))
-      setNumRows(Number(e.target[1].value))
-      console.log('numCols = ' + numCols)
-      console.log('numRows = ' + numRows)
-      setGrid(generateEmptyGrid());
-    }
-    
+      runningRef.current = false;     
+      setNumCols(numCols)
+      setNumRows(numRows)
+      setGrid(generateEmptyGrid(numRows,numCols));      
+    }    
   }
 
   return (
     <div className='app' style={{ backgroundColor: '#111'}}>
-      <nav style={{
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }} >
+      <nav className='nav' >
+        <div className='game-buttons'>
           <button 
-          onClick={() => {
-            setRunning(!running);
-            if(!running) {
-              runningRef.current = true;
-              runSimulation();
-            }
-          
+            onClick={() => {
+              setRunning(!running);
+              if(!running) {
+                runningRef.current = true;
+                runSimulation();
+              }
+            
+            }}>
+              {running ? 'Stop' : 'Start' }
+          </button>
+          <button onClick={() => {
+            setGrid(generateEmptyGrid())
           }}>
-            {running ? 'Stop' : 'Start' }
-        </button>
-        <button onClick={() => {
-          setGrid(generateEmptyGrid())
-        }}>
-          Clear
-        </button>
-        <button onClick={() => {
-          const rows = [];
-          for (let i = 0; i < numRows; i++) {
-            rows.push(Array.from(Array(numCols), () => (Math.random() > 0.5 ? 1 : 0)))
-          }
-      
-          setGrid(rows);
-        }}>
-          Random
-        </button>
+            Clear
+          </button>
+          <button onClick={() => {
+            const rows = [];
+            for (let i = 0; i < numRows; i++) {
+              rows.push(Array.from(Array(numCols), () => (Math.random() > 0.5 ? 1 : 0)))
+            }
+        
+            setGrid(rows);
+          }}>
+            Random
+          </button>
+        </div>
 
+        <div className='spacer'></div>
+          
         <form className='form' onSubmit={handleSubmit}>
           <input type='number' placeholder='Columns' name='cols' />
           <input type='number' placeholder='Rows' name='rows' />
-          <button>Submit</button>
+          <button>Resize Grid</button>
         </form>
        
       </nav>

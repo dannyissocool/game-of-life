@@ -14,6 +14,75 @@
           align-items: center;
 }
 
+.nav {
+  width: '100%';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: 'center';
+      -ms-flex-align: 'center';
+          align-items: 'center';
+}
+
+@media (max-width: 900px) {
+  .nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nav .game-buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nav form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.nav .game-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav form input {
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 0 1rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav form button {
+  background-color: cornflowerblue;
+  font-size: medium;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.nav form button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 body {
   background-color: black;
 }
@@ -24,9 +93,10 @@ button {
   color: #d0fcc3;
   margin: 0 20px;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 10px;
   -webkit-transition: 0.2s all ease;
   transition: 0.2s all ease;
+  font-size: 18px;
 }
 
 button:hover {
@@ -35,20 +105,5 @@ button:hover {
 
 .grid {
   padding: 50px;
-}
-
-.form input {
-  border-radius: 10px;
-  text-align: center;
-  padding: 5px 10px;
-  font-size: 15px;
-}
-
-.form button {
-  background-color: cornflowerblue;
-}
-
-.form button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
 }
 /*# sourceMappingURL=App.css.map */
