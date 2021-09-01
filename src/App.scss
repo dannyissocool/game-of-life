@@ -1,0 +1,48 @@
+.app {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+body {
+  background-color: black;
+}
+
+button {
+  padding: 5px 20px;
+  background-color: limegreen;
+  color: rgb(208, 252, 195);  
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.2s all ease;  
+}
+
+button:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+
+.grid {
+  padding: 50px;
+}
+
+.form {
+
+  input {
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  button {
+    background-color:cornflowerblue;
+
+   &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+  } 
+
+}
