@@ -102,7 +102,7 @@ function App() {
               {running ? 'Stop' : 'Start' }
           </button>
           <button onClick={() => {
-            setGrid(generateEmptyGrid())
+            setGrid(generateEmptyGrid(numRows,numCols))
           }}>
             Clear
           </button>
