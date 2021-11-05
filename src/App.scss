@@ -1,60 +1,96 @@
 .app {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
 }
 
-.nav {  
-  width: '100%';
-  display:flex;
-  align-items: 'center';
-    
+h4 {
+  color: white;
+  text-align: center;
+}
 
-  @media (max-width: 900px) {
-    flex-direction: column;
+p {
+  color: white;
+  text-align: center;
+}
 
+.nav-wrapper {
+  // max-width: 600px;
+
+  .nav {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1000px) {
+      height: auto;
+      flex-direction: column;
+
+      .game-buttons {
+        flex-direction: column;
+
+        button {
+          margin: 5px 0;
+        }
+      }
+
+      form {
+        flex-direction: column;
+
+        input {
+          margin: 5px 0;
+          width: 100%;
+        }
+
+        button {
+          margin: 5px 0;
+        }
+      }
+    }
 
     .game-buttons {
-      flex-direction: column;
+      display: flex;
+      justify-content: center;
     }
 
     form {
-      flex-direction: column;
-    }
-  }
+      display: flex;
+      justify-content: center;
 
-  .game-buttons {
-    display: flex;
-    justify-content: center;
-  }
+      input {
+        border-radius: 10px;
+        text-align: center;
 
-  form {
-    display: flex;
-    justify-content: center;      
-
-    input {
-      border-radius: 10px;
-      text-align: center;
-      padding: 5px 10px;
-      margin: 0 1rem;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    button {
-      background-color:cornflowerblue;
-      font-size: medium;
-      font-size: 18px;
-      white-space: nowrap;
-
-    &:hover {
-        background-color: rgba(255,255,255,0.2);
+        font-size: 18px;
+        font-weight: bold;
       }
-    } 
-  }
 
+      button {
+        background-color: cornflowerblue;
+        font-size: medium;
+        font-size: 18px;
+        white-space: nowrap;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+}
+
+.game-rules {
+  max-width: 400px;
+  margin: 0 auto;
+
+  ol {
+    li {
+      color: white;
+    }
+  }
 }
 
 body {
@@ -64,22 +100,18 @@ body {
 button {
   padding: 5px 20px;
   background-color: limegreen;
-  color: rgb(208, 252, 195);  
+  color: rgb(208, 252, 195);
   margin: 0 20px;
   cursor: pointer;
   border-radius: 10px;
   transition: 0.2s all ease;
   font-size: 18px;
-    
 }
 
 button:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
-
-
 
 .grid {
   padding: 50px;
 }
-
