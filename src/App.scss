@@ -82,13 +82,44 @@ p {
   }
 }
 
-.game-rules {
-  max-width: 400px;
-  margin: 0 auto;
+.game-rules-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-  ol {
-    li {
-      color: white;
+  @media (max-width: 1000px) {
+    grid-template-columns: 300px;
+  }
+
+  .game-instructions {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    ul {
+      li {
+        color: white;
+
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .game-rules {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    ol {
+      li {
+        color: white;
+      }
     }
   }
 }

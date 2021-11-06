@@ -17,6 +17,9 @@ function App() {
   const [numRows, setNumRows] = useState(50);
   const [numCols, setNumCols] = useState(50);
 
+  const [openInstructions, setOpenInstructions] = useState(false);
+  const [openLogic, setOpenLogic] = useState(false);
+
   const generateEmptyGrid = (numRows, numCols) => {
     const rows = [];
     for (let i = 0; i < numRows; i++) {
@@ -143,25 +146,52 @@ function App() {
         </nav>
       </div>
 
-      <div className="game-rules">
-        <ol>
-          <li>
-            Any live cell with fewer than two live neighbours dies, as if by
-            underpopulation.
-          </li>
-          <li>
-            Any live cell with two or three live neighbours lives on to the next
-            generation.
-          </li>
-          <li>
-            Any live cell with more than three live neighbours dies, as if by
-            overpopulation.
-          </li>
-          <li>
-            Any dead cell with exactly three live neighbours becomes a live
-            cell, as if by reproduction.
-          </li>
-        </ol>
+      <div className="game-rules-grid">
+        <div className="game-instructions">
+          <button onClick={() => setOpenInstructions(!openInstructions)}>
+            Instructions
+          </button>
+
+          {openInstructions && (
+            <ul>
+              <li>
+                Click the <span>Randomize</span> button to fill grid.
+              </li>
+              <li>
+                <span>Start</span> the simulation. <span>Stop</span> to pause.
+              </li>
+              <li>
+                <span>Clear</span> wipes the grid clean.
+              </li>
+              <li>(Optional): Resize the grid</li>
+            </ul>
+          )}
+        </div>
+
+        <div className="game-rules">
+          <button onClick={() => setOpenLogic(!openLogic)}>Game Logic</button>
+
+          {openLogic && (
+            <ol>
+              <li>
+                Any live cell with fewer than two live neighbours dies, as if by
+                underpopulation.
+              </li>
+              <li>
+                Any live cell with two or three live neighbours lives on to the
+                next generation.
+              </li>
+              <li>
+                Any live cell with more than three live neighbours dies, as if
+                by overpopulation.
+              </li>
+              <li>
+                Any dead cell with exactly three live neighbours becomes a live
+                cell, as if by reproduction.
+              </li>
+            </ol>
+          )}
+        </div>
       </div>
 
       <div
